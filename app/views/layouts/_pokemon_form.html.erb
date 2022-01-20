@@ -1,0 +1,64 @@
+<%= form_with model: @pokemon do |form| %>
+  <div class="card equal=height my-5">
+    <div class="card-content">
+      <div class="field my-2">
+        <%= form.label :name, { class: "label"} %>
+        <div class="control">
+          <%= form.text_field :name, { class: "input", placeholder: "Pokemon's Name" }%>
+        </div>
+      </div>
+      <div class="field my-2">
+        <%= form.label :hp, { class: "label"} %>
+        <div class="control">
+          <%= form.number_field :hp, { class: "input", placeholder: "HP" } %>
+        </div>
+      </div>
+      <div class="field my-2">
+        <%= form.label :attack, { class: "label"} %>
+        <div class="control">
+          <%= form.number_field :attack, { class: "input", placeholder: "Attack"} %>
+        </div>
+      </div>
+      <div class="field my-2">
+        <%= form.label :defense, { class: "label"} %>
+        <div class="control">
+          <%= form.number_field :defense, { class: "input", placeholder: "Defense"} %>
+        </div>
+      </div>
+      <div class="field my-2">
+        <%= form.label :color, { class: "label"} %>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <%= form.select :color, Color.all.map(&:name), {}, placeholder: "Color" %>
+          </div>
+        </div>
+      </div>
+      <div class="field my-2">
+        <%= form.label :type, { class: "label"} %>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <%= form.select :type, Type.all.map(&:name), {}, placeholder: "Main type" %>
+          </div>
+        </div>
+      </div>
+      <div class="field my-2">
+        <%= form.label :ability, { class: "label"} %>
+        <div class="control is-expanded">
+          <div class="select is-fullwidth">
+            <%= form.select :ability, Ability.all.map(&:name), {}, placeholder: "Main ability" %>
+          </div>
+        </div>
+      </div>
+      <div class="field my-2">
+        <%= form.label :image, { class: "label"} %>
+        <div class="control">
+          <%= form.text_field :image, { class: "input", placeholder: "Image URL" }%>
+        </div>
+      </div>
+    </div>
+    <footer class="card-footer">
+      <%= link_to "Cancel", pokemons_path, :class => "card-footer-item" %>
+      <%= form.submit "Submit", class: "card-footer-item has-background-white", style:"border:none" %>
+    </footer>
+  </div>
+<% end %>

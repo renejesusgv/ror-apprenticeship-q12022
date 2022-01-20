@@ -1,0 +1,99 @@
+<ul>
+  <% @pokemons.each do |pokemon| %>
+    <li>
+      <div class="card equal=height my-5">
+        <div class="card-header">
+          <div class="card-header-title">
+            <%= tag.p pokemon.name, class: "title is-5" %>
+          </div>
+        </div>
+        <%= link_to pokemon_path(pokemon) do %>
+          <div class="card-image my-3 has-text-centered">
+            <figure class="image is-128x128 is-inline-block">
+              <%= image_tag(pokemon.image, class:"is-center") %>
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <div class="level is-marginless">
+                  <div class="level-left">
+                    <div class="level-item">
+                      <%= tag.span "HP", class: "text has-text-weight-semibold" %>
+                    </div>
+                  </div>
+                  <div class="level-right">
+                    <div class="level-item">
+                      <%= tag.span "#{pokemon.hp}", class: "text" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="level is-marginless">
+                  <div class="level-left">
+                    <div class="level-item">
+                      <%= tag.span "Attack", class: "text has-text-weight-semibold" %>
+                    </div>
+                  </div>
+                  <div class="level-right">
+                    <div class="level-item">
+                      <%= tag.span "#{pokemon.attack}", class: "text" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="level is-marginless">
+                  <div class="level-left">
+                    <div class="level-item">
+                      <%= tag.span "Defense", class: "text has-text-weight-semibold" %>
+                    </div>
+                  </div>
+                  <div class="level-right">
+                    <div class="level-item">
+                      <%= tag.span "#{pokemon.defense}", class: "text" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="level is-marginless">
+                  <div class="level-left">
+                    <div class="level-item">
+                      <%= tag.span "Main Type", class: "text has-text-weight-semibold" %>
+                    </div>
+                  </div>
+                  <div class="level-right">
+                    <div class="level-item">
+                      <%= tag.span "#{pokemon.types.first.name}", class: "text" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="level is-marginless">
+                  <div class="level-left">
+                    <div class="level-item">
+                      <%= tag.span "Main Ability", class: "text has-text-weight-semibold" %>
+                    </div>
+                  </div>
+                  <div class="level-right">
+                    <div class="level-item">
+                      <%= tag.span "#{pokemon.abilities.first.name}", class: "text" %>
+                    </div>
+                  </div>
+                </div>
+                <div class="level is-marginless">
+                  <div class="level-left">
+                    <div class="level-item">
+                      <%= tag.span "Color", class: "text has-text-weight-semibold" %>
+                    </div>
+                  </div>
+                  <div class="level-right">
+                    <div class="level-item">
+                      <%= tag.span "#{pokemon.color.name}", class: "text" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+<%= paginate @pokemons, window: 2 %>
